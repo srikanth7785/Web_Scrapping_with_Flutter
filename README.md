@@ -1,4 +1,4 @@
-# Fetch_Events
+# Events Fetcher
 
 A small that demonstrates how to perform Web_Scrapping in a Flutter App.
 

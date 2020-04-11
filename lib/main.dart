@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Evnets Fetcher'),
+      home: MyHomePage(title: 'Events Fetcher'),
     );
   }
 }

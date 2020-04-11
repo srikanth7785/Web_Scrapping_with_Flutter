@@ -1,4 +1,4 @@
-package com.example.Fetch_Events
+package com.srikanth7785.Fetch_Events
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
