@@ -150,7 +150,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                     child: ListWheelScrollView(
                                                       physics: ClampingScrollPhysics(),
                                                       diameterRatio: 1.8,
-                                                      itemExtent: 200.0,
+                                                      itemExtent: 150.0,
                                                       magnification: 1.0,
                                                       children: List.generate(eventDates.length, (index) => Container(
                                                         margin: EdgeInsets.only(left: 10.0, right: 10.0),
@@ -184,14 +184,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                                 ),
                                                               ),
                                                             SizedBox(height: 15.0,),
-                                                            Text("Place:",style: TextStyle(color: Colors.white70),),
-                                                            Text(eventLocation[index],style: TextStyle(wordSpacing: -2.0),),
+                                                            FittedBox(child: Text("🏛️ : " + eventLocation[index],style: TextStyle(wordSpacing: -2.0),)),
                                                             SizedBox(height: 5.0,),
-                                                            Text("Contact Number:",style: TextStyle(color: Colors.white70),),
-                                                            Text(contactNumber[index]),
+                                                            FittedBox(child: Text("📞 : " + contactNumber[index])),
                                                             SizedBox(height: 5.0,),
-                                                            Text("Contact Person:",style: TextStyle(color: Colors.white70),),
-                                                            Text(contactPerson[index]),
+                                                            FittedBox(child: Text("👤 : " + contactPerson[index])),
                                                           ],
                                                         ),
                                                       ))
