@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Events Fetcher',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -88,13 +89,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                 var eventLocation = [];
                                 var contactNumber = [];
                                 var contactPerson = [];
-                                var eventLinks = [];
+                                // var eventLinks = [];
                                 var document = parse(response.body);
                                 List<dom.Element> links = document.querySelectorAll('div.event_block.$campusCode');
                                 for (var i in links) {
                                   // print(i);
                                   for (var j in i.children) {
-                                    eventLinks.add(j.attributes['href']);
                                     // print(j.children);
                                     for (var k in j.children) {
                                       // print(k.children);
@@ -118,12 +118,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                     }
                                   }
                                 }
-                                print("Event Dates are : \n $eventDates");
-                                print("Event Titles are : \n $eventTitles");
-                                print("Event Locations are : \n $eventLocation");
-                                print("Contact Number are: \n $contactNumber");
-                                print("Contact Persons are : \n $contactPerson");
-                                print("Event Links are : \n $eventLinks");
+                                // print("Event Dates are : \n $eventDates");
+                                // print("Event Titles are : \n $eventTitles");
+                                // print("Event Locations are : \n $eventLocation");
+                                // print("Contact Number are: \n $contactNumber");
+                                // print("Contact Persons are : \n $contactPerson");
+                                // print("Event Links are : \n $eventLinks");
                                 Navigator.pop(context);
                                 showGeneralDialog(
                                     barrierColor: Colors.black.withOpacity(0.5),
@@ -147,7 +147,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 children: <Widget>[
                                                   Padding(
                                                     padding: EdgeInsets.only(top: 50.0),
-                                                    child: ListWheelScrollView(
+                                                    child: eventDates.length > 0 ? ListWheelScrollView(
                                                       physics: ClampingScrollPhysics(),
                                                       diameterRatio: 1.8,
                                                       itemExtent: 150.0,
@@ -192,6 +192,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                                           ],
                                                         ),
                                                       ))
+                                                    ) : Center(
+                                                      child: Text(
+                                                        "No Events Found.",
+                                                        style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold,color: Colors.white),
+                                                      )
                                                     ),
                                                   ),
                                                   Container(
@@ -235,7 +240,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     title: Center(child: Text("OOPS..!!")),
                                     content: Text("Something went wrong..Please try again later..!"),
                                     actions: <Widget>[
-                                      FlatButton(
+                                      TextButton(
                                         child: Text("OK"),
                                         onPressed: (){
                                           Navigator.pop(context);
