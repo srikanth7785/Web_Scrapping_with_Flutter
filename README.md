@@ -1,6 +1,6 @@
 # Events Fetcher
 
-A small that demonstrates how to perform Web_Scrapping in Flutter.
+A small app that demonstrates how to perform Web_Scrapping in Flutter.
 
 This App fetches events from [Gitam Site](https://login.gitam.edu) and displays them in app.
 
